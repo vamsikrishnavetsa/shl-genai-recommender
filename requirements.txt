@@ -1,12 +1,15 @@
-fastapi==0.121.0
-uvicorn==0.38.0
+# ===== CORE DEPENDENCIES =====
+streamlit==1.38.0
 pandas==2.2.2
 numpy==1.26.4
 openpyxl==3.1.2
+
+# ===== NLP & TRANSFORMERS =====
 sentence-transformers==2.2.2
-transformers==4.29.0
-torch==2.0.0
-huggingface-hub==0.15.1
+transformers==4.33.0
+torch==2.2.0
+huggingface-hub==0.24.6   # ✅ Fixed cached_download compatibility
+
+# ===== UTILITIES =====
 requests==2.32.3
-streamlit==1.38.0
 python-multipart==0.0.9
