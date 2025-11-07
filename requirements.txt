@@ -1,0 +1,22 @@
+# Core Backend Dependencies
+fastapi==0.121.0
+uvicorn==0.38.0
+
+# Data Processing
+pandas==2.3.3
+numpy==2.3.4
+openpyxl==3.1.5
+
+# NLP & Transformers
+sentence-transformers==2.2.2
+transformers>=4.33.0
+torch>=2.0.0
+
+# API Communication
+requests==2.32.3
+
+# Frontend (Streamlit)
+streamlit==1.39.0
+
+# Utility / Deployment
+python-multipart==0.0.9

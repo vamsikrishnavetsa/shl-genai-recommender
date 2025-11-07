@@ -1,0 +1,51 @@
+input_query,recommended_assessment,url,similarity_score
+Recommend a test to evaluate communication skills,Cognitive Ability Test,https://www.shl.com/en/assessments/cognitive-ability/,0.495
+Recommend a test to evaluate communication skills,Leadership Assessment,https://www.shl.com/en/assessments/leadership/,0.396
+Recommend a test to evaluate communication skills,Numerical Reasoning Test,https://www.shl.com/en/assessments/numerical-reasoning/,0.376
+Recommend a test to evaluate communication skills,Customer Service Simulation,https://www.shl.com/en/assessments/customer-service/,0.368
+Recommend a test to evaluate communication skills,Personality Questionnaire,https://www.shl.com/en/assessments/personality/,0.356
+Suggest an assessment for leadership potential,Leadership Assessment,https://www.shl.com/en/assessments/leadership/,0.807
+Suggest an assessment for leadership potential,Personality Questionnaire,https://www.shl.com/en/assessments/personality/,0.371
+Suggest an assessment for leadership potential,Cognitive Ability Test,https://www.shl.com/en/assessments/cognitive-ability/,0.338
+Suggest an assessment for leadership potential,Numerical Reasoning Test,https://www.shl.com/en/assessments/numerical-reasoning/,0.261
+Suggest an assessment for leadership potential,Customer Service Simulation,https://www.shl.com/en/assessments/customer-service/,0.208
+Find assessment for problem-solving ability,Cognitive Ability Test,https://www.shl.com/en/assessments/cognitive-ability/,0.722
+Find assessment for problem-solving ability,Numerical Reasoning Test,https://www.shl.com/en/assessments/numerical-reasoning/,0.525
+Find assessment for problem-solving ability,Leadership Assessment,https://www.shl.com/en/assessments/leadership/,0.341
+Find assessment for problem-solving ability,Personality Questionnaire,https://www.shl.com/en/assessments/personality/,0.311
+Find assessment for problem-solving ability,Customer Service Simulation,https://www.shl.com/en/assessments/customer-service/,0.164
+Recommend a tool to evaluate teamwork and collaboration,Leadership Assessment,https://www.shl.com/en/assessments/leadership/,0.452
+Recommend a tool to evaluate teamwork and collaboration,Personality Questionnaire,https://www.shl.com/en/assessments/personality/,0.272
+Recommend a tool to evaluate teamwork and collaboration,Cognitive Ability Test,https://www.shl.com/en/assessments/cognitive-ability/,0.225
+Recommend a tool to evaluate teamwork and collaboration,Customer Service Simulation,https://www.shl.com/en/assessments/customer-service/,0.193
+Recommend a tool to evaluate teamwork and collaboration,Numerical Reasoning Test,https://www.shl.com/en/assessments/numerical-reasoning/,0.159
+Suggest a test for analytical reasoning,Numerical Reasoning Test,https://www.shl.com/en/assessments/numerical-reasoning/,0.595
+Suggest a test for analytical reasoning,Cognitive Ability Test,https://www.shl.com/en/assessments/cognitive-ability/,0.539
+Suggest a test for analytical reasoning,Leadership Assessment,https://www.shl.com/en/assessments/leadership/,0.304
+Suggest a test for analytical reasoning,Personality Questionnaire,https://www.shl.com/en/assessments/personality/,0.23
+Suggest a test for analytical reasoning,Customer Service Simulation,https://www.shl.com/en/assessments/customer-service/,0.226
+Find an assessment for time management,Leadership Assessment,https://www.shl.com/en/assessments/leadership/,0.402
+Find an assessment for time management,Cognitive Ability Test,https://www.shl.com/en/assessments/cognitive-ability/,0.32
+Find an assessment for time management,Personality Questionnaire,https://www.shl.com/en/assessments/personality/,0.284
+Find an assessment for time management,Numerical Reasoning Test,https://www.shl.com/en/assessments/numerical-reasoning/,0.251
+Find an assessment for time management,Customer Service Simulation,https://www.shl.com/en/assessments/customer-service/,0.133
+Recommend a test for adaptability and learning agility,Cognitive Ability Test,https://www.shl.com/en/assessments/cognitive-ability/,0.428
+Recommend a test for adaptability and learning agility,Numerical Reasoning Test,https://www.shl.com/en/assessments/numerical-reasoning/,0.347
+Recommend a test for adaptability and learning agility,Leadership Assessment,https://www.shl.com/en/assessments/leadership/,0.318
+Recommend a test for adaptability and learning agility,Personality Questionnaire,https://www.shl.com/en/assessments/personality/,0.24
+Recommend a test for adaptability and learning agility,Customer Service Simulation,https://www.shl.com/en/assessments/customer-service/,0.179
+Suggest an assessment for customer orientation,Leadership Assessment,https://www.shl.com/en/assessments/leadership/,0.407
+Suggest an assessment for customer orientation,Customer Service Simulation,https://www.shl.com/en/assessments/customer-service/,0.372
+Suggest an assessment for customer orientation,Personality Questionnaire,https://www.shl.com/en/assessments/personality/,0.327
+Suggest an assessment for customer orientation,Numerical Reasoning Test,https://www.shl.com/en/assessments/numerical-reasoning/,0.222
+Suggest an assessment for customer orientation,Cognitive Ability Test,https://www.shl.com/en/assessments/cognitive-ability/,0.215
+Find test to measure emotional intelligence,Cognitive Ability Test,https://www.shl.com/en/assessments/cognitive-ability/,0.515
+Find test to measure emotional intelligence,Numerical Reasoning Test,https://www.shl.com/en/assessments/numerical-reasoning/,0.408
+Find test to measure emotional intelligence,Personality Questionnaire,https://www.shl.com/en/assessments/personality/,0.346
+Find test to measure emotional intelligence,Leadership Assessment,https://www.shl.com/en/assessments/leadership/,0.302
+Find test to measure emotional intelligence,Customer Service Simulation,https://www.shl.com/en/assessments/customer-service/,0.301
+Recommend assessment for innovation and creativity,Leadership Assessment,https://www.shl.com/en/assessments/leadership/,0.312
+Recommend assessment for innovation and creativity,Cognitive Ability Test,https://www.shl.com/en/assessments/cognitive-ability/,0.222
+Recommend assessment for innovation and creativity,Personality Questionnaire,https://www.shl.com/en/assessments/personality/,0.187
+Recommend assessment for innovation and creativity,Numerical Reasoning Test,https://www.shl.com/en/assessments/numerical-reasoning/,0.159
+Recommend assessment for innovation and creativity,Customer Service Simulation,https://www.shl.com/en/assessments/customer-service/,0.101

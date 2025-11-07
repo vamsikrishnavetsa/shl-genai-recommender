@@ -1,0 +1,32 @@
+[
+  {
+    "assessment_name": "Cognitive Ability Test",
+    "category": "Cognitive Ability",
+    "url": "https://www.shl.com/en/assessments/cognitive-ability/",
+    "description": "Measures reasoning and problem-solving skills"
+  },
+  {
+    "assessment_name": "Personality Questionnaire",
+    "category": "Personality",
+    "url": "https://www.shl.com/en/assessments/personality/",
+    "description": "Evaluates personality traits and behavior at work"
+  },
+  {
+    "assessment_name": "Leadership Assessment",
+    "category": "Leadership",
+    "url": "https://www.shl.com/en/assessments/leadership/",
+    "description": "Assesses leadership potential and management effectiveness"
+  },
+  {
+    "assessment_name": "Customer Service Simulation",
+    "category": "Simulation",
+    "url": "https://www.shl.com/en/assessments/customer-service/",
+    "description": "Tests communication and empathy in customer service roles"
+  },
+  {
+    "assessment_name": "Numerical Reasoning Test",
+    "category": "Skills",
+    "url": "https://www.shl.com/en/assessments/numerical-reasoning/",
+    "description": "Assesses ability to interpret numerical data and logic"
+  }
+]
