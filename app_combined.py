@@ -5,12 +5,15 @@ import json
 from sentence_transformers import SentenceTransformer, util
 
 # ----------------------------
-# Load prebuilt data
+# Configuration
 # ----------------------------
 EMBED_PATH = "data/catalog_embeddings.npy"
 META_PATH = "data/catalog_meta.json"
 MODEL_NAME = "all-MiniLM-L6-v2"
 
+# ----------------------------
+# Load Model and Data
+# ----------------------------
 @st.cache_resource
 def load_model():
     return SentenceTransformer(MODEL_NAME)
@@ -31,30 +34,32 @@ embeddings, meta = load_data()
 st.set_page_config(page_title="SHL GenAI Recommender", page_icon="🤖", layout="centered")
 
 st.title("🤖 SHL GenAI Assessment Recommender")
-st.markdown("Type any skill, role, or competency — and get SHL assessments instantly powered by GenAI!")
+st.markdown(
+    "Type any **skill**, **role**, or **competency** and instantly get the most relevant SHL assessments powered by GenAI!"
+)
 
-query = st.text_input("🔍 Enter your query (e.g., communication skills, leadership test):", "")
+query = st.text_input("🔍 Enter your query (e.g., 'communication skills', 'leadership test'):")
 top_k = st.slider("Number of recommendations:", 1, 10, 5)
 
 if st.button("Get Recommendations 🚀"):
     if not query.strip():
-        st.warning("Please enter a query first!")
+        st.warning("Please enter a query first.")
     else:
-        st.write("Generating recommendations, please wait...")
+        with st.spinner("Generating recommendations..."):
+            q_emb = model.encode(query, convert_to_numpy=True)
+            scores = util.cos_sim(q_emb, embeddings)[0].cpu().numpy()
+            top_idx = np.argsort(scores)[::-1][:top_k]
 
-        q_emb = model.encode(query, convert_to_numpy=True)
-        scores = util.cos_sim(q_emb, embeddings)[0].cpu().numpy()
-        top_idx = np.argsort(scores)[::-1][:top_k]
+            results = []
+            for i in top_idx:
+                item = meta[i]
+                results.append({
+                    "Assessment Name": item.get("assessment_name"),
+                    "Category": item.get("category"),
+                    "URL": item.get("url"),
+                    "Similarity Score": round(float(scores[i]), 3)
+                })
 
-        results = []
-        for i in top_idx:
-            item = meta[i]
-            results.append({
-                "assessment_name": item.get("assessment_name"),
-                "url": item.get("url"),
-                "similarity": round(float(scores[i]), 3)
-            })
-
-        df = pd.DataFrame(results)
-        st.success(f"Top {top_k} SHL Assessments for '{query}':")
-        st.dataframe(df)
+            df = pd.DataFrame(results)
+            st.success(f"Top {top_k} recommendations for: **{query}**")
+            st.dataframe(df)
