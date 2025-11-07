@@ -1,3 +1,14 @@
+---
+title: SHL GenAI Recommender
+emoji: 🤖
+colorFrom: indigo
+colorTo: blue
+sdk: streamlit
+sdk_version: "1.38.0"
+app_file: app_combined.py
+pinned: false
+license: mit
+---
 🧠 SHL GenAI Assessment Recommender System
 
 An AI-powered semantic recommendation engine that suggests the most relevant SHL assessments for any given skill, role, or competency query — built with FastAPI, Streamlit, and Sentence Transformers.
