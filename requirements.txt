@@ -1,9 +1,14 @@
+# Streamlit App
 streamlit==1.38.0
+
+# Core NLP + Embeddings
+sentence-transformers==2.2.2
+transformers==4.33.3
+torch==2.1.2
+huggingface-hub==0.24.6
+
+# Data & Utilities
 pandas==2.2.2
 numpy==1.26.4
 openpyxl==3.1.2
-sentence-transformers==2.2.2
-transformers==4.33.0
-torch==2.2.0
-huggingface-hub==0.24.6
 requests==2.32.3
