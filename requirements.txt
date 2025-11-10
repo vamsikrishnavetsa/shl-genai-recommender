@@ -4,7 +4,8 @@ transformers==4.30.2
 
 # ✅ Compatible PyTorch CPU build for Render
 --extra-index-url https://download.pytorch.org/whl/cpu
-torch==2.1.2+cpu
+torch==2.5.1+cpu
+
 
 # Data & utilities
 pandas==2.1.4
