@@ -6,54 +6,95 @@
   <title>SHL GenAI Recommender</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: #f8f9fa;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #f8f9fa);
       margin: 0;
-      padding: 40px;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+    .container {
+      background: #fff;
+      max-width: 700px;
+      margin-top: 60px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      padding: 40px 35px;
+      text-align: center;
     }
     h1 {
-      color: #2d6cdf;
+      color: #1565c0;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #555;
+      font-size: 15px;
     }
     textarea {
-      width: 80%;
+      width: 90%;
       height: 120px;
-      margin-top: 20px;
-      padding: 10px;
-      font-size: 16px;
+      border-radius: 8px;
       border: 1px solid #ccc;
-      border-radius: 6px;
+      padding: 10px;
+      font-size: 15px;
+      margin-top: 15px;
+      resize: none;
+      outline: none;
     }
     button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      background-color: #2d6cdf;
-      color: white;
+      margin-top: 20px;
+      background: #1565c0;
+      color: #fff;
       border: none;
-      border-radius: 5px;
-      cursor: pointer;
+      padding: 12px 25px;
+      border-radius: 6px;
       font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
     }
     button:hover {
-      background-color: #1f4fbf;
+      background: #0d47a1;
     }
     #result {
-      margin-top: 20px;
-      font-size: 18px;
-      color: #333;
+      margin-top: 25px;
+      text-align: left;
+    }
+    .rec-card {
+      background: #f1f8ff;
+      padding: 12px 15px;
+      margin-top: 10px;
+      border-left: 5px solid #1565c0;
+      border-radius: 8px;
+    }
+    .rec-card a {
+      text-decoration: none;
+      color: #1565c0;
+      font-weight: bold;
+    }
+    .rec-card a:hover {
+      text-decoration: underline;
+    }
+    .score {
+      color: #555;
+      font-size: 14px;
+      margin-top: 3px;
     }
   </style>
 </head>
 <body>
-  <h1>🚀 SHL GenAI Recommender</h1>
-  <p>Enter your text below and get AI-based recommendations.</p>
-  
-  <form id="recommend-form">
-    <textarea id="inputText" placeholder="Type your query here..."></textarea><br>
-    <button type="submit">Get Recommendation</button>
-  </form>
+  <div class="container">
+    <h1>🚀 SHL GenAI Recommender</h1>
+    <p>Type any skill, behavior, or competency to get SHL assessment recommendations.</p>
+    
+    <form id="recommend-form">
+      <textarea id="inputText" placeholder="e.g., leadership, teamwork, problem solving..."></textarea><br>
+      <button type="submit">Get Recommendations</button>
+    </form>
 
-  <div id="result"></div>
+    <div id="result"></div>
+  </div>
 
   <script>
     const form = document.getElementById('recommend-form');
@@ -61,7 +102,7 @@
       event.preventDefault();
       const inputText = document.getElementById('inputText').value.trim();
       const resultDiv = document.getElementById('result');
-      resultDiv.innerHTML = "⏳ Fetching recommendation...";
+      resultDiv.innerHTML = "<p>⏳ Fetching recommendations...</p>";
       try {
         const response = await fetch('/recommend', {
           method: 'POST',
@@ -69,9 +110,22 @@
           body: JSON.stringify({ query: inputText })
         });
         const data = await response.json();
-        resultDiv.innerHTML = `<strong>Recommendation:</strong> ${data.recommendation || JSON.stringify(data)}`;
+
+        if (data.recommendations && Array.isArray(data.recommendations)) {
+          let html = `<h3>Results for: "<em>${data.query}</em>"</h3>`;
+          data.recommendations.forEach(rec => {
+            html += `
+              <div class="rec-card">
+                <a href="${rec.url}" target="_blank">${rec.assessment_name}</a>
+                <div class="score">Score: ${rec.score.toFixed(3)}</div>
+              </div>`;
+          });
+          resultDiv.innerHTML = html;
+        } else {
+          resultDiv.innerHTML = "<p>⚠️ No recommendations found.</p>";
+        }
       } catch (err) {
-        resultDiv.innerHTML = "❌ Error fetching recommendation.";
+        resultDiv.innerHTML = "<p style='color:red;'>❌ Error fetching recommendations.</p>";
       }
     });
   </script>
