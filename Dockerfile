@@ -7,21 +7,18 @@ WORKDIR /app
 # Copy dependency list
 COPY requirements.txt .
 
-# Install system dependencies and Python packages
+# Install required dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    libffi-dev \
-    git \
- && rm -rf /var/lib/apt/lists/*
+    build-essential libffi-dev git && rm -rf /var/lib/apt/lists/*
 
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-# Copy the entire project
+# Copy all files
 COPY . .
 
-# Expose port 8080 for Render
-EXPOSE 8080
+# Expose the dynamic Render port
+EXPOSE 10000
 
-# Start command for Gunicorn + Uvicorn worker
-CMD ["gunicorn", "src.app:app", "--workers", "2", "--worker-class", "uvicorn.workers.UvicornWorker", "--bind", "0.0.0.0:8080"]
+# ✅ Start the FastAPI app with Uvicorn using Render's $PORT variable
+CMD ["sh", "-c", "gunicorn src.app:app --workers 2 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:$PORT"]
