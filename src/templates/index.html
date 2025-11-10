@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SHL GenAI Recommender</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 40px;
+    }
+    h1 {
+      color: #2d6cdf;
+    }
+    textarea {
+      width: 80%;
+      height: 120px;
+      margin-top: 20px;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #2d6cdf;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #1f4fbf;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>🚀 SHL GenAI Recommender</h1>
+  <p>Enter your text below and get AI-based recommendations.</p>
+  
+  <form id="recommend-form">
+    <textarea id="inputText" placeholder="Type your query here..."></textarea><br>
+    <button type="submit">Get Recommendation</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    const form = document.getElementById('recommend-form');
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const inputText = document.getElementById('inputText').value.trim();
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = "⏳ Fetching recommendation...";
+      try {
+        const response = await fetch('/recommend', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query: inputText })
+        });
+        const data = await response.json();
+        resultDiv.innerHTML = `<strong>Recommendation:</strong> ${data.recommendation || JSON.stringify(data)}`;
+      } catch (err) {
+        resultDiv.innerHTML = "❌ Error fetching recommendation.";
+      }
+    });
+  </script>
+</body>
+</html>
