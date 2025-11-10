@@ -1,4 +1,6 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 from src.recommender import Recommender
 
@@ -9,7 +11,10 @@ app = FastAPI(
     version="1.0"
 )
 
-# Load recommender model
+# Set up templates directory (for frontend)
+templates = Jinja2Templates(directory="src/templates")
+
+# Load recommender model safely
 try:
     recommender = Recommender()
 except Exception as e:
@@ -20,12 +25,20 @@ class QueryRequest(BaseModel):
     query: str
     top_k: int = 5
 
-# Root health check endpoint
-@app.get("/")
-def health_check():
-    return {"status": "ok", "message": "Service is running"}
+# 🏠 Web UI (Home page)
+@app.get("/", response_class=HTMLResponse)
+def home(request: Request):
+    """
+    Renders the simple HTML page for user input.
+    """
+    return templates.TemplateResponse("index.html", {"request": request})
 
-# Main recommendation endpoint
+# ❤️ Health check endpoint
+@app.get("/health")
+def health_check():
+    return {"status": "ok", "message": "SHL Gen AI API is live. Use `/health` and `/recommend`."}
+
+# 🚀 Main recommendation endpoint
 @app.post("/recommend")
 def get_recommendations(request: QueryRequest):
     try:
