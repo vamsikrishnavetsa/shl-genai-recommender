@@ -1,11 +1,10 @@
-# Streamlit app dependencies
-streamlit==1.38.0
-
 # Core NLP model (light and stable)
 sentence-transformers==2.2.2
 transformers==4.30.2
-torch==2.0.0+cpu
+
+# ✅ Compatible PyTorch CPU build for Render
 --extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.1.2+cpu
 
 # Data & utilities
 pandas==2.1.4
@@ -14,3 +13,8 @@ openpyxl==3.1.2
 requests==2.32.3
 python-multipart==0.0.9
 huggingface-hub==0.17.3
+
+# ✅ Web framework (FastAPI backend)
+fastapi==0.111.0
+uvicorn==0.30.0
+gunicorn==22.0.0
